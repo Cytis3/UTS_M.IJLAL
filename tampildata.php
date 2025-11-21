@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/all.css">
 </head>
 
-<body style="background-color:darkgrey;">
+<body style="background-color:#d1e6d4">
     <?php
     include_once("navbar.php");
     ?>
@@ -21,17 +21,18 @@
             <div class="col-10 m-auto">
                 <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
                     <div class="card-header">
-                        <b><Title>Library Manager</Title></b>
+                        <b>Library</b>
                         <a href="form_tambah.php" class="float-end btn btn-primary btn-sm"><i class="fa-solid fa-user-plus"></i> Tambah data</a>
-                        <div class="card-body">
+                    </div>
+                    <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Judul Buku</th>
                                     <th scope="col">Pengarang</th>
-                                    <th scope="col">Kategori</th>
                                     <th scope="col">Tahun Terbit</th>
+                                    <th scope="col">Kategori</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,21 +41,23 @@
                                 include("koneksi.php");
 
                                 #2. menulikan query menampilkan data
-                                $query = "SELECT * FROM perpustakaan";
+                                $qry = "SELECT * FROM buku";
 
                                 #3. menjalankan query
-                                $tampil = mysqli_query($koneksi,$query);
+                                $tampil = mysqli_query($koneksi,$qry);
 
                                 #4. looping hasil query
-                                $nomor =1;
-                                foreach ($tampil as $data){
+                                $nomor = 1;
+                                foreach($tampil as $data){
+
                                 ?>
                                 <tr>
                                     <th scope="row"><?=$nomor++?></th>
                                     <td><?=$data['jd_buku']?></td>
                                     <td><?=$data['pengarang']?></td>
-                                    <td><?=$data['kategori']?></td>
                                     <td><?=$data['th_terbit']?></td>
+                                    <td><?=$data['kategori']?></td>
+                                    <td>
                                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$data['id']?>"><i class="fa-solid fa-magnifying-glass"></i></button>
                                         <a href="formedit.php?id=<?=$data['id']?>" class="btn btn-info btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalhapus<?=$data['id']?>"><i class="fa-solid fa-trash"></i></button>
@@ -64,14 +67,14 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Data Detail <?=$data['nama']?></h1>
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Data Detail <?=$data['jd_buku']?></h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <table class="table">
                                                 <tbody>
                                                     <tr>
-                                                        <td>Judul buku</td>
+                                                        <td>Judul Buku</td>
                                                         <th scope="row"><?=$data['jd_buku']?></th>
                                                     </tr>
                                                     <tr>
@@ -79,12 +82,12 @@
                                                         <th scope="row"><?=$data['pengarang']?></th>
                                                     </tr>
                                                     <tr>
-                                                        <td>Kategori</td>
-                                                        <th scope="row"><?=$data['kategori']?></th>
-                                                    </tr>
-                                                    <tr>
                                                         <td>Tahun Terbit</td>
                                                         <th scope="row"><?=$data['th_terbit']?></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kategori</td>
+                                                        <th scope="row"><?=$data['kategori']?></th>
                                                     </tr>
                                                 </tbody>
                                                 </table>
@@ -106,11 +109,11 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Yakin Data Dengan Judul <?=$data['jd_buku']?> Ingin Dihapus?
+                                                Yakin Data Dengan Nama <?=$data['jd_buku']?> Ingin Dihapus?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <a href="proseshapus.php?.id=<?$id['id']?>" class="btn btn-danger">Hapus</a>
+                                                <a href="proseshapus.php?id=<?=$data['id']?>" class="btn btn-danger">Hapus</a>
                                             </div>
                                             </div>
                                         </div>

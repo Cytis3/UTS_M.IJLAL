@@ -38,11 +38,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Tahun Terbit</label>
-                                <input name="th_terbit" type="date" class="form-control" id="exampleInputEmail1"
+                                <input name="th_terbit" type="number" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
-                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            
                         </form>
                     </div>
                     <div class="card-body">

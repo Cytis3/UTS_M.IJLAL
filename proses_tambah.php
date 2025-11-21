@@ -9,7 +9,7 @@
     $th_terbit = $_POST['th_terbit'];
 
     #Query Insert Data
-    $query = "INSERT INTO perpustakaan (jd_buku, pengarang, kategori, th_terbit) VALUES ('$jd_buku', '$pengarang', '$kategori', '$th_terbit')";
+    $query = "INSERT INTO buku (jd_buku, pengarang, kategori, th_terbit) VALUES ('$jd_buku', '$pengarang', '$kategori', '$th_terbit')";
 
     $tambah = mysqli_query($koneksi,$query);
 

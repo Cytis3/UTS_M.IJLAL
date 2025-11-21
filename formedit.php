@@ -1,3 +1,10 @@
+<?php
+include_once("koneksi.php");
+$idedit = $_GET['id'];
+$query = "SELECT * FROM perpustakaan WHERE id='$idedit'";
+$edit = mysqli_query($koneksi,$query);
+$data = mysqli_fetch_array($edit);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,25 +27,25 @@
                 <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
                     <div class="card-header">
                         <b>Library Manager</b>
-                        <form action="proses_tambah.php" method="POST" enctype="multipart/form-data">
+                        <form action="proses_edit.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Judul Buku</label>
-                                <input name="jd_buku" type="text" class="form-control" id="exampleInputEmail1"
+                                <input value="<?= $data['jd_buku'] ?>" name="jd_buku" type="text" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Pengarang</label>
-                                <input name="pengarang" type="text" class="form-control" id="exampleInputEmail1"
+                                <input value="<?= $data['pengarang'] ?>" name="pengarang" type="text" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Kategori</label>
-                                <input name="kategori" type="text" class="form-control" id="exampleInputEmail1"
+                                <input value="<?= $data['kategori'] ?>" name="kategori" type="text" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Tahun Terbit</label>
-                                <input name="th_terbit" type="date" class="form-control" id="exampleInputEmail1"
+                                <input value="<?= $data['th_terbit'] ?>" name="th_terbit" type="date" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
                             </div>
