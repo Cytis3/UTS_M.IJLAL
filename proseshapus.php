@@ -6,7 +6,7 @@
     $idhapus = $_GET['id'];
 
     #3. menulis query
-    $qry = "DELETE FROM perpustakaan WHERE id='$idhapus'";
+    $qry = "DELETE FROM buku WHERE id='$idhapus'";
 
     #4. menjalan query
     $hapus = mysqli_query($koneksi,$qry);

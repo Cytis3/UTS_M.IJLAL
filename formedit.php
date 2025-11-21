@@ -1,7 +1,7 @@
 <?php
 include_once("koneksi.php");
 $idedit = $_GET['id'];
-$query = "SELECT * FROM perpustakaan WHERE id='$idedit'";
+$query = "SELECT * FROM buku WHERE id='$idedit'";
 $edit = mysqli_query($koneksi,$query);
 $data = mysqli_fetch_array($edit);
 ?>
