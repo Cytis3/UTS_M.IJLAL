@@ -19,8 +19,8 @@
             <div class="col-8 m-auto">
                 <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
                     <div class="card-header">
-                        <b><Title></Title></b>
-                        <h2>isi</h2>
+                        <b><Title>Library Manager</Title></b>
+                        <h2>Selamat Datang di Perpustakaan</h2>
                         </form>
                     </div>
                 </div>
