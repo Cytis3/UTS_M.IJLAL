@@ -23,22 +23,22 @@
                         <form action="proses_tambah.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Judul Buku</label>
-                                <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
+                                <input name="jd_buku" type="text" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Pengarang</label>
-                                <input name="nisn" type="text" class="form-control" id="exampleInputEmail1"
+                                <input name="pengarang" type="text" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Kategori</label>
-                                <input name="tp_lahir" type="text" class="form-control" id="exampleInputEmail1"
+                                <input name="kategori" type="text" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Tahun Terbit</label>
-                                <input name="tg_lahir" type="date" class="form-control" id="exampleInputEmail1"
+                                <input name="th_terbit" type="date" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp">
                             </div>
                             </div>

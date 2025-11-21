@@ -28,34 +28,33 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">NISN</th>
-                                    <th scope="col">Tanggal Lahir</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Judul Buku</th>
+                                    <th scope="col">Pengarang</th>
+                                    <th scope="col">Kategori</th>
+                                    <th scope="col">Tahun Terbit</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 #1. koneksi
-                                include("../koneksi.php");
+                                include("koneksi.php");
 
                                 #2. menulikan query menampilkan data
-                                $qry = "SELECT * FROM biodata";
+                                $query = "SELECT * FROM perpustakaan";
 
                                 #3. menjalankan query
-                                $tampil = mysqli_query($koneksi,$qry);
+                                $tampil = mysqli_query($koneksi,$query);
 
                                 #4. looping hasil query
-                                $nomor = 1;
-                                foreach($tampil as $data){
-
+                                $nomor =1;
+                                foreach ($tampil as $data){
                                 ?>
                                 <tr>
                                     <th scope="row"><?=$nomor++?></th>
-                                    <td><?=$data['nama']?></td>
-                                    <td><?=$data['nisn']?></td>
-                                    <td><?=$data['tg_lahir']?></td>
-                                    <td>
+                                    <td><?=$data['jd_buku']?></td>
+                                    <td><?=$data['pengarang']?></td>
+                                    <td><?=$data['kategori']?></td>
+                                    <td><?=$data['th_terbit']?></td>
                                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$data['id']?>"><i class="fa-solid fa-magnifying-glass"></i></button>
                                         <a href="formedit.php?id=<?=$data['id']?>" class="btn btn-info btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalhapus<?=$data['id']?>"><i class="fa-solid fa-trash"></i></button>
@@ -73,19 +72,19 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>Judul buku</td>
-                                                        <th scope="row"><?=$data['nama']?></th>
+                                                        <th scope="row"><?=$data['jd_buku']?></th>
                                                     </tr>
                                                     <tr>
                                                         <td>Pengarang</td>
-                                                        <th scope="row"><?=$data['nisn']?></th>
+                                                        <th scope="row"><?=$data['pengarang']?></th>
                                                     </tr>
                                                     <tr>
                                                         <td>Kategori</td>
-                                                        <th scope="row"><?=$data['tp_lahir']?></th>
+                                                        <th scope="row"><?=$data['kategori']?></th>
                                                     </tr>
                                                     <tr>
                                                         <td>Tahun Terbit</td>
-                                                        <th scope="row"><?=$data['tg_lahir']?></th>
+                                                        <th scope="row"><?=$data['th_terbit']?></th>
                                                     </tr>
                                                 </tbody>
                                                 </table>
@@ -107,7 +106,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Yakin Data Dengan Nama <?=$data['nama']?> Ingin Dihapus?
+                                                Yakin Data Dengan Judul <?=$data['jd_buku']?> Ingin Dihapus?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
